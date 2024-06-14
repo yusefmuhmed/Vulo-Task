@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserTreeComponent } from './user-tree/user-tree.component';
-import { UserNodeComponent } from './user-tree/user-node/user-node.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserTreeComponent, UserNodeComponent],
+  imports: [RouterOutlet, UserTreeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -24,7 +24,17 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "assets/users.json",
+                "input": "src"
+              },
+
+              {
+                "glob": "assets/user.png",
+                "input": "src"
               }
+
             ],
             "styles": [
               "src/styles.css"

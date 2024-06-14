@@ -1,0 +1,17 @@
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.children {
+  display: flex;
+  justify-content: center;
+}

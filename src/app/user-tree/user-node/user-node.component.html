@@ -1,1 +1,12 @@
-<p>user-node works!</p>
+<div class="node">
+  <div *ngIf="node.user" class="user-card">
+    <img [src]="node.user.imagePath" alt="{{ node.user.name }}" height="80px" width="80px">
+    <div>
+      <p>{{ node.user.name }}</p>
+      <p>{{ node.user.code }}</p>
+    </div>
+  </div>
+  <div class="children">
+    <app-user-node *ngFor="let child of getChildren(node)" [node]="child"></app-user-node>
+  </div>
+</div>
