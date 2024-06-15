@@ -1,32 +1,35 @@
-
-import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface User {
+  name: string;
+  code: string;
+  imagePath: string;
+}
+
+interface TreeNode {
+  user: User | null;
+  children: { [key: string]: TreeNode };
+}
 
 @Component({
   selector: 'app-user-node',
+  imports:[CommonModule],
   templateUrl: './user-node.component.html',
   styleUrls: ['./user-node.component.css'],
-  standalone: true,
-  imports: [CommonModule],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('1s', style({ opacity: 1 }))
-      ])
-    ])
-  ]
+  standalone: true
 })
-export class UserNodeComponent implements OnInit {
-  @Input() node: any;
+export class UserNodeComponent {
+  @Input() node!: TreeNode;
+  @Input() path!: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  getChildren(node: TreeNode): { path: string; node: TreeNode }[] {
+    return Object.entries(node.children).map(([key, child]) => ({
+      path: this.path + key,
+      node: child
+    }));
   }
 
-  getChildren(node: any): any[] {
-    return Object.keys(node.children).map(key => node.children[key]);
-  }
+ 
+
 }

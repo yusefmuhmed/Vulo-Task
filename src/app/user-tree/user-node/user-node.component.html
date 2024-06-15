@@ -1,4 +1,4 @@
-<div class="node">
+<div class="node" >
   <div *ngIf="node.user" class="user-card">
     <img [src]="node.user.imagePath" alt="{{ node.user.name }}" height="80px" width="80px">
     <div>
@@ -7,6 +7,6 @@
     </div>
   </div>
   <div class="children">
-    <app-user-node *ngFor="let child of getChildren(node)" [node]="child"></app-user-node>
+    <app-user-node *ngFor="let child of getChildren(node)" [node]="child.node" [path]="child.path"></app-user-node>
   </div>
 </div>
